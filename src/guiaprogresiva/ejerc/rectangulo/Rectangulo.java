@@ -6,14 +6,16 @@ public class Rectangulo {
 	double altura;
 	
 	double getArea() {
-		return base * altura;
+		return this.base * this.altura;
 	}
 	
 	double getPerimetro(){
-		return 2 * base + 2 * altura;
+		return 2 * this.base + 2 * this.altura;
 	}
 	
 	boolean isCuadrado() {
+		
+		//Es mejor no usar if dentro de metodos
 		if(base == altura) {
 			return true;
 		}else {

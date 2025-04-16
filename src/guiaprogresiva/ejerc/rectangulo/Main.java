@@ -88,7 +88,7 @@ public class Main {
 					System.out.println("El indice va de 0 a " + (rectangulos.length - 1));
 					codigoIngreso = sc.nextInt(); // VARIABLE PARA INDEXAR
 
-					if (rectangulos[codigoIngreso].isCuadrado()) {
+					if (rectangulos[codigoIngreso].isCuadrado() ) {
 						System.out.println("El rectangulo " + codigoIngreso + " ingresado es cuadrado");
 					} else {
 						System.out.println("El rectangulo " + codigoIngreso + " no es cuadrado");
