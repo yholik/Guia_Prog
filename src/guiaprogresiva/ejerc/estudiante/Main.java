@@ -55,6 +55,8 @@ public class Main {
 			System.out.println("El promedio del estudiante es: " + estudiantes[i].getPromedio());
 		}
 		
+		
+		sc.close();
 	}
 
 }
