@@ -4,7 +4,9 @@ public class Rectangulo {
 	int codigo;
 	double base;
 	double altura;
-	
+	int getCodigo() {
+		return this.codigo;
+	}
 	double getArea() {
 		return this.base * this.altura;
 	}
@@ -14,13 +16,8 @@ public class Rectangulo {
 	}
 	
 	boolean isCuadrado() {
-		
-		//Es mejor no usar if dentro de metodos
-		if(base == altura) {
-			return true;
-		}else {
-			return false;
-		}
+		boolean esCuadrado = this.base == this.altura;
+		return esCuadrado;
 		
 		//TAMBIEN PUEDE SER ASI
 		/* boolean isCuadrado(){
