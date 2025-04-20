@@ -15,10 +15,8 @@ import java.util.Scanner;
  * 
  * Realizar un programa donde se solicite el código, la base y la altura de dos rectángulos.
  * Luego, se muestre el perímetro y área de cada uno de ellos. 
- * 
- * //TODO También hay que mostrar una advertencia si es cuadrado. Al finalizar, 
- * //TODO Se debe mostrar el código del rectángulo con mayor área.
- * 
+ *  
+ * //TODO  getMayorLado(): double 
 */
 public class Main {
 
@@ -26,11 +24,13 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 
 		// INGRESO DE CANTIDAD PARA EL VECTOR RECTANGULOS[]
+		System.out.println("Programa para gestionar rectangulos, primero decinos");
 		System.out.println("¿Cuantos rectangulos queres ingresar?");
 		int cantidadRectangulos = sc.nextInt();
 
 		// CREAMOS LA CLASE RECTANGULO CON VECTOR DE RECTANGULOS
 		Rectangulo rectangulos[] = new Rectangulo[cantidadRectangulos];
+		Rectangulo mayorArea = null;
 
 		// INICIO INGRESO DE DATOS DE RECTANGULOS
 		for (int i = 0; i < rectangulos.length; i++) {
@@ -68,13 +68,14 @@ public class Main {
 		int codUsuario;
 		String respuesta;
 		do {
-			System.out.println("Elegi que queres hacer: \n 1- SABER AREA \n "
-					+ "2- SABER PERIMETRO \n 3-¿ES CUADRADO? \n 4-SALIR");
+			//Siempre que se agregue un item al menu, hay que cambiar condicion en while, al final.
+			System.out.println("Elegi que queres hacer: \n 1- SABER AREA Y RECTANGULO DE MAYOR AREA \n "
+					+ "2- SABER PERIMETRO \n 3-¿ES CUADRADO? \n 4- SABER MAYOR LADO \n 5- SALIR");
 			menu = sc.nextInt();
 
 			switch (menu) {
 
-			// RETORNAR AREA DE UN RECTANGULO
+			// SABER AREA DE UN RECTANGULO
 			case 1:
 				boolean encontrado1 = false;
 				System.out.println("Para saber el area ingresa el codigo del rectangulo");
@@ -106,6 +107,23 @@ public class Main {
 					}
 
 				} while (!encontrado1);
+				// FIN SABER AREA DE UN RECTANGULO
+
+				// MOSTRAR CODIGO DE RECTANGULO CON MAYOR AREA
+				for (int j = 0; j < rectangulos.length; j++) {
+					if (j == 0) {
+						mayorArea = rectangulos[0];
+					}
+
+					if (rectangulos[j].getArea() > mayorArea.getArea()) {
+						mayorArea = rectangulos[j];
+					}
+
+				}
+
+				System.out.println("El rectangulo de mayor area es: " + mayorArea.getCodigo());
+				// FIN MOSTRAR CODIGO DE RECTANGULO CON MAYOR AREA
+
 				break;
 			// FIN RETORNAR AREA
 
@@ -187,7 +205,46 @@ public class Main {
 				break;
 			// FIN SABER SI ES CUADRADO
 
-			case 4: // SALIDA DEL PROGRAMA
+			case 4:
+				// SABER MAYOR LADO
+				boolean encontrado4 = false;
+				System.out.println("Para saber el mayor lado de un rectangulo"
+						+ " ingresa su codigo");
+
+				do {
+					int i = 0;
+					codUsuario = sc.nextInt(); // VARIABLE PARA INDEXAR
+
+					for (i = 0; i < rectangulos.length; i++) {
+						if (rectangulos[i].getCodigo() == codUsuario) {
+							double mayorL = rectangulos[i].getMayorLado();
+							System.out.println("Su mayor lado es: " + mayorL);
+							encontrado4 = true;
+							i = rectangulos.length;
+						}
+					}
+
+					if (!encontrado4) {
+						System.out.println("No se encontro el codigo ingresado");
+						// OPCION DE SALIR AL MENU
+						System.out.println("¿Queres ingresarlo de nuevo?");
+						respuesta = sc.next();
+
+						if (respuesta.charAt(0) == 'n' || respuesta.charAt(0) == 'N') {
+							encontrado4 = true;
+						} else {
+							System.out.println("Ingresa el codigo:");
+						}
+					}
+
+				} while (!encontrado4);
+
+				break;
+			// FIN SABER MAYOR LADO
+				
+			case 5:
+				// SALIDA DEL PROGRAMA
+
 				System.out.println("Saliendo...");
 				System.out.println("---FIN DEL PROGRAMA---" + "\n Yamila Holik - 2025");
 
@@ -197,7 +254,7 @@ public class Main {
 			default:
 				System.out.println("Error");
 			}
-		} while (menu != 4);
+		} while (menu != 5);
 //FIN SWITCH
 
 		sc.close();

@@ -4,6 +4,7 @@ public class Rectangulo {
 	int codigo;
 	double base;
 	double altura;
+	
 	int getCodigo() {
 		return this.codigo;
 	}
@@ -18,13 +19,14 @@ public class Rectangulo {
 	boolean isCuadrado() {
 		boolean esCuadrado = this.base == this.altura;
 		return esCuadrado;
-		
-		//TAMBIEN PUEDE SER ASI
-		/* boolean isCuadrado(){
-		 * boolean resultado = this.base == this.altura;
-		 * return resultado;
-		 * }
-		 * 
-		 */
 	}
+	
+	double getMayorLado() {
+		if(this.base > this.altura) {
+			return this.base;
+		}else {
+			return this.altura;
+		}
+	}
+	
 }
