@@ -15,6 +15,16 @@ import java.util.Scanner;
  * Ej:
  * String palabra = “hola”;
  * char primerLetra = palabra.charAt(0);
+ * 
+ *  getEstadoMatematica(): String
+ *  Retornar las palabras “PROMOCION”, “FINAL” o “RECURSA” en base a la 
+ *  notaMatematica del estudiante.
+ *  
+ *  getNotaGeografiaEnPalabra(): String
+ *  Retorna la notaGeografia pero en su versión palabra. Ej: Si la notaGeografia es 3 
+ *  retorna la palabra “Tres”. Si no se ingresa una nota valida, debe retornar “N/A”.
+ *  Se recomienda hacer un switch con muchos retornos.
+
  * */
 
 public class Main {
@@ -22,9 +32,9 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 
 		int cantidadVector = 0;
+
 		System.out.println("Cuantos estudiantes hay?");
 		cantidadVector = sc.nextInt();
-
 		Estudiante estudiantes[] = new Estudiante[cantidadVector];
 
 		// INICIO INGRESO DE DATOS ESTUDIANTES
@@ -39,23 +49,23 @@ public class Main {
 			estudiantes[i].notaMatematica = sc.nextDouble();
 		}
 		// FIN INGRESO DE DATOS ESTUDIANTES
+
 		
-		
-		//MOSTRAR DATOS DE CADA ESTUDIANTE
-		for(int i = 0; i < estudiantes.length; i++) {
+		// MOSTRAR DATOS DE CADA ESTUDIANTE
+		for (int i = 0; i < estudiantes.length; i++) {
 			System.out.println("Nombre del estudiante " + estudiantes[i].nombre);
 			System.out.println("Inicial del estudiante " + estudiantes[i].getInicial());
-			
-			if(estudiantes[i].isGeografiaAprobada()){
+
+			if (estudiantes[i].isGeografiaAprobada()) {
 				System.out.println("Aprobo Geografia \n");
-			}else {
+			} else {
 				System.out.println("Desaprobo geografia \n");
 			}
-			
+
 			System.out.println("El promedio del estudiante es: " + estudiantes[i].getPromedio());
+			System.out.println("Estado de matematica: " + estudiantes[i].getEstadoMatematica());
 		}
-		
-		
+
 		sc.close();
 	}
 
