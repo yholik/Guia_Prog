@@ -81,10 +81,10 @@ public class Main {
 				System.out.println("Para saber el area ingresa el codigo del rectangulo");
 
 				do {
-					int i = 0;
+					//int i = 0;
 					codUsuario = sc.nextInt(); // VARIABLE PARA INDEXAR
 
-					for (i = 0; i < rectangulos.length; i++) {
+					for (int i = 0; i < rectangulos.length; i++) {
 						if (rectangulos[i].getCodigo() == codUsuario) {
 							double areaR = rectangulos[i].getArea();
 							System.out.println("El area es: " + areaR);
@@ -133,10 +133,10 @@ public class Main {
 				System.out.println("Para saber el perimetro ingresa el codigo del rectangulo");
 
 				do {
-					int i = 0;
+					//int i = 0;
 					codUsuario = sc.nextInt(); // VARIABLE PARA INDEXAR
 
-					for (i = 0; i < rectangulos.length; i++) {
+					for (int i = 0; i < rectangulos.length; i++) {
 						double perimetroR = 0; // INICIALIZACION EN 0 DE VARIABLE
 						if (rectangulos[i].getCodigo() == codUsuario) {
 							perimetroR = rectangulos[i].getPerimetro();
@@ -170,10 +170,10 @@ public class Main {
 				System.out.println("Para saber si es cuadrado,");
 				System.out.println("ingresa el codigo del rectangulo:");
 				do {
-					int i = 0;
+					//int i = 0;
 					codUsuario = sc.nextInt(); // VARIABLE PARA INDEXAR
 
-					for (i = 0; i < rectangulos.length; i++) {
+					for (int i = 0; i < rectangulos.length; i++) {
 
 						if (rectangulos[i].getCodigo() == codUsuario) {
 							if (rectangulos[i].isCuadrado()) {
@@ -212,10 +212,10 @@ public class Main {
 						+ " ingresa su codigo");
 
 				do {
-					int i = 0;
+					//int i = 0;
 					codUsuario = sc.nextInt(); // VARIABLE PARA INDEXAR
 
-					for (i = 0; i < rectangulos.length; i++) {
+					for (int i = 0; i < rectangulos.length; i++) {
 						if (rectangulos[i].getCodigo() == codUsuario) {
 							double mayorL = rectangulos[i].getMayorLado();
 							System.out.println("Su mayor lado es: " + mayorL);
