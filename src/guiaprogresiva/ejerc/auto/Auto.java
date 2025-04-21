@@ -11,6 +11,7 @@ package guiaprogresiva.ejerc.auto;
 */
 
 public class Auto {
+	String patente;
 	double kilometros;
 	double velocidad;
 	double horasRecorridas;
@@ -25,5 +26,21 @@ public class Auto {
 		double resultadoHs = 0;
 		resultadoHs = this.kilometros / this.velocidad;
 		return resultadoHs;
+	}
+	
+	boolean isPatenteValida(){
+		boolean resultado;
+		
+		if(this.patente.length()== 6) {
+			resultado = true;
+			return resultado;
+		}else {
+			resultado = false;
+			return resultado;
+		}
+	}
+	
+	String getPatente(){
+		return this.patente;
 	}
 }
