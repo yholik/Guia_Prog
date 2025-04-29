@@ -28,6 +28,9 @@ public class Main {
 		
 		// INGRESO DE AUTOS
 		for (int i = 0; i < autos.length; i++) {
+			
+			// Lo mejor es definir un apodo del objeto y asignarlo al final
+			// Auto autoActual = vAutos[i];
 			autos[i] = new Auto();
 			System.out.println("Ingrese la patente, debe tener 6 caracteres");
 			boolean confirmado1 = false;
