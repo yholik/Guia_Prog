@@ -25,27 +25,21 @@ public class Estudiante {
 	}
 
 	String getEstadoMatematica() {
-		String leyenda;
-		int nota = (int) Math.round(this.notaMatematica);
-		
-		switch (nota) {
-		case 1, 2, 3:
-			leyenda = "RECURSA";
-			return leyenda;
-
-		case 4, 5, 6:
-			leyenda = "FINAL";
-			return leyenda;
-
-		case 7, 8, 9, 10:
-			leyenda = "PROMOCION";
-			return leyenda;
-
-		default:
-			leyenda = "ERROR";
-			return leyenda;
-
+		String leyenda="ERROR";
+		if(this.notaMatematica <= 10 && this.notaMatematica >= 0){
+			if(this.notaMatematica >= 7) {
+				leyenda = "PROMOCION";
+				
+			}else if(this.notaMatematica >= 4){
+				leyenda = "FINAL";
+			}else if(this.notaMatematica> 0) {
+				
+				leyenda = "RECURSA";
+			}
 		}
+
+
+		return leyenda;
 	}
 	
 	String getNotaGeografiaEnPalabra() {

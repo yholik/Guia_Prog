@@ -11,24 +11,24 @@ package guiaprogresiva.ejerc.auto;
 */
 
 public class Auto {
-	String patente;
-	double kilometros;
-	double velocidad;
-	double horasRecorridas;
+	public String patente;
+	public double kilometros;
+	public double velocidad;
+	public double horasRecorridas;
 	
-	boolean isCeroKilometros(){
+	public boolean isCeroKilometros(){
 		boolean esCero;
 		esCero = this.kilometros == 0;
 		return esCero;
 	}
 	
-	double getHorasRecorridas(){
+	public double getHorasRecorridas(){
 		double resultadoHs = 0;
 		resultadoHs = this.kilometros / this.velocidad;
 		return resultadoHs;
 	}
 	
-	boolean isPatenteValida(){
+	public boolean isPatenteValida(){
 		boolean resultado;
 		
 		if(this.patente.length()== 6) {
@@ -40,7 +40,7 @@ public class Auto {
 		}
 	}
 	
-	String getPatente(){
+	public String getPatente(){
 		return this.patente;
 	}
 }
