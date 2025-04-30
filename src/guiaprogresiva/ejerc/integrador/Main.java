@@ -11,9 +11,6 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		int cantidadVector = 0; // Variable para longitud de vector
-		int opcion; // Selector menu
-
 		System.out.println("Programa de registro de estudiantes");
 
 

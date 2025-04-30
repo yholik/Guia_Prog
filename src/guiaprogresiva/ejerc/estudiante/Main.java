@@ -89,7 +89,7 @@ public class Main {
 						System.out.println("----------------------");
 					}
 				}else {
-					System.out.println("No hay alumnos registrados, elegi opcion 1 o SALIR");
+					System.out.println("No hay alumnos registrados");
 				}
 				break;
 				//FIN MOSTRAR DATOS DE CADA ESTUDIANTE
