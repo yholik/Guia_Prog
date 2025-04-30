@@ -31,14 +31,15 @@ public class Main {
 			
 			// Lo mejor es definir un apodo del objeto y asignarlo al final
 			// Auto autoActual = vAutos[i];
-			autos[i] = new Auto();
-			System.out.println("Ingrese la patente, debe tener 6 caracteres");
+			Auto nuevoAuto = new Auto();
+			
+			System.out.println("Ingrese la patente del auto nº" + (i+1) + " debe tener 6 caracteres");
 			boolean confirmado1 = false;
 
 			do {
-				autos[i].patente = sc.next();
+				nuevoAuto.patente = sc.next();
 
-				if (autos[i].isPatenteValida()) {
+				if (nuevoAuto.isPatenteValida()) {
 					System.out.println("La patente ingresada es valida");
 					confirmado1 = true;
 				} else {
@@ -48,10 +49,12 @@ public class Main {
 			} while (!confirmado1);
 
 			System.out.println("Ingrese la velocidad del auto");
-			autos[i].velocidad = sc.nextDouble();
+			nuevoAuto.velocidad = sc.nextDouble();
 
 			System.out.println("Ingrese el kilometraje");
-			autos[i].kilometros = sc.nextDouble();
+			nuevoAuto.kilometros = sc.nextDouble();
+			
+			autos[i] = nuevoAuto;
 		}
 		// FIN INGRESO DE AUTOS
 

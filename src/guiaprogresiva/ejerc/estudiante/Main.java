@@ -31,42 +31,80 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		int cantidadVector = 0;
+		int cantidadVector = 0; // Variable para longitud de vector
+		int opcion; // Selector menu
 
-		System.out.println("Cuantos estudiantes hay?");
-		cantidadVector = sc.nextInt();
+		System.out.println("Programa de registro de estudiantes");
+
+		do {
+			System.out.println("¿Cuantos estudiantes deseas cargar? Solo podes ingresar una vez este dato");
+			cantidadVector = sc.nextInt();
+
+			if (cantidadVector <= 0) {
+				System.out.println("La cantidad no puede ser cero");
+			}
+		} while (cantidadVector <= 0);
+
 		Estudiante estudiantes[] = new Estudiante[cantidadVector];
-
+		
+		
 		// INICIO INGRESO DE DATOS ESTUDIANTES
 		for (int i = 0; i < estudiantes.length; i++) {
-			estudiantes[i] = new Estudiante();
-
-			System.out.println("Nombre del estudiante " + i);
-			estudiantes[i].nombre = sc.next();
+			Estudiante nuevoEstudiante = new Estudiante();
+			
+			System.out.println("Nombre del estudiante Nº" + (i + 1));
+			nuevoEstudiante.nombre = sc.next();
 			System.out.println("Nota de geografia?");
-			estudiantes[i].notaGeografia = sc.nextDouble();
+			nuevoEstudiante.notaGeografia = sc.nextDouble();
 			System.out.println("Nota de matematica");
-			estudiantes[i].notaMatematica = sc.nextDouble();
+			nuevoEstudiante.notaMatematica = sc.nextDouble();
+			estudiantes[i] = nuevoEstudiante;
+		
 		}
 		// FIN INGRESO DE DATOS ESTUDIANTES
 
-		
-		// MOSTRAR DATOS DE CADA ESTUDIANTE
-		for (int i = 0; i < estudiantes.length; i++) {
-			System.out.println("Nombre del estudiante " + estudiantes[i].nombre);
-			System.out.println("Inicial del estudiante " + estudiantes[i].getInicial());
+		do {
+			System.out.println("Selecciona la opcion que deseas del menu:"
+		+ "\n 1- Mostrar datos de cada alumno" + "\n 2- Salir del programa");
+			opcion = sc.nextInt();
 
-			if (estudiantes[i].isGeografiaAprobada()) {
-				System.out.println("Aprobo Geografia \n");
-			} else {
-				System.out.println("Desaprobo geografia \n");
+			switch (opcion) {
+			
+			// MOSTRAR DATOS DE CADA ESTUDIANTE
+			case 1:
+				
+				if(estudiantes[0] != null) {
+					for (int i = 0; i < estudiantes.length; i++) {
+
+						System.out.println("Nombre del estudiante: " + estudiantes[i].nombre);
+						System.out.println("Inicial del estudiante: " + estudiantes[i].getInicial());
+
+						if (estudiantes[i].isGeografiaAprobada()) {
+							System.out.println("Geografia: APROBADA");
+						} else {
+							System.out.println("Geografia: DESAPROBADA");
+						}
+						System.out.println("El promedio del estudiante es: " + estudiantes[i].getPromedio());
+						System.out.println("Estado de matematica: " + estudiantes[i].getEstadoMatematica());
+						System.out.println("----------------------");
+					}
+				}else {
+					System.out.println("No hay alumnos registrados, elegi opcion 1 o SALIR");
+				}
+				break;
+				//FIN MOSTRAR DATOS DE CADA ESTUDIANTE
+				
+			case 2: 
+				System.out.println("Saliendo del programa...");
+				System.out.println("Fin");
+				break;
+				
+			default:
+				System.out.println("Error");
+				break;
+
 			}
 
-			System.out.println("El promedio del estudiante es: " + estudiantes[i].getPromedio());
-			System.out.println("Estado de matematica: " + estudiantes[i].getEstadoMatematica());
-		}
-
-		sc.close();
+		} while (opcion != 2);
 	}
-
 }

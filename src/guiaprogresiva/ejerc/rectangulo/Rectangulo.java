@@ -1,27 +1,27 @@
 package guiaprogresiva.ejerc.rectangulo;
 
 public class Rectangulo {
-	int codigo;
-	double base;
-	double altura;
+	public int codigo;
+	public double base;
+	public double altura;
 	
-	int getCodigo() {
+	public int getCodigo() {
 		return this.codigo;
 	}
-	double getArea() {
+	public double getArea() {
 		return this.base * this.altura;
 	}
 	
-	double getPerimetro(){
+	public double getPerimetro(){
 		return 2 * this.base + 2 * this.altura;
 	}
 	
-	boolean isCuadrado() {
+	public boolean isCuadrado() {
 		boolean esCuadrado = this.base == this.altura;
 		return esCuadrado;
 	}
 	
-	double getMayorLado() {
+	public double getMayorLado() {
 		if(this.base > this.altura) {
 			return this.base;
 		}else {

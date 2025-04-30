@@ -1,30 +1,30 @@
 package guiaprogresiva.ejerc.estudiante;
 
 public class Estudiante {
-	String nombre;
-	String apellido;
-	int documento;
+	public String nombre;
+	public String apellido;
+	public int documento;
 
-	double notaGeografia;
-	double notaMatematica;
-	double promedio;
+	public double notaGeografia;
+	public double notaMatematica;
+	public double promedio;
 
-	double getPromedio() {
+	public double getPromedio() {
 		double promedio = (this.notaMatematica + this.notaGeografia) / 2;
 		return promedio;
 	}
 
-	boolean isGeografiaAprobada() {
+	public boolean isGeografiaAprobada() {
 		boolean resultado = this.notaGeografia >= 4;
 		return resultado;
 	}
 
-	char getInicial() {
+	public char getInicial() {
 		char inicial = this.nombre.charAt(0);
 		return inicial;
 	}
 
-	String getEstadoMatematica() {
+	public String getEstadoMatematica() {
 		String leyenda="ERROR";
 		if(this.notaMatematica <= 10 && this.notaMatematica >= 0){
 			if(this.notaMatematica >= 7) {
@@ -42,7 +42,7 @@ public class Estudiante {
 		return leyenda;
 	}
 	
-	String getNotaGeografiaEnPalabra() {
+	public String getNotaGeografiaEnPalabra() {
 		String palabra;
 		int nota = (int) Math.round(this.notaGeografia);
 		
